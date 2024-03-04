@@ -28,11 +28,15 @@ Write a batch script like this:
 #! /bin/bash
  
 #SBATCH -p general  # use the general partition
+
 #SBATCH -J saving_the_world  # give the job a custom name
+
 #SBATCH -o results-%j.out  # give the job output a custom name
+
 #SBATCH -t 0-02:00  # two hour time limit
  
 #SBATCH -N 2  # number of nodes
+
 #SBATCH -n 2  # number of cores (AKA tasks) total tasks need to be mentioned here across all nodes
  
 #Commands here run only on the first core
