@@ -47,4 +47,5 @@ Write a batch script like this:
   #Commands with srun will run on all cores in the allocation
   srun ./a.out
 
+
 Now run the batch script using: sbatch scriptname
