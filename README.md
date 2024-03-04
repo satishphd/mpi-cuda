@@ -35,12 +35,12 @@ Write a batch script like this:
 #SBATCH -N 2  # number of nodes
 #SBATCH -n 2  # number of cores (AKA tasks) total tasks need to be mentioned here across all nodes
  
-# Commands here run only on the first core
+#Commands here run only on the first core
 echo "$(hostname), reporting for duty."
  
 module load openmpi/4.1.1_gcc_9.5.0
  
-# Commands with srun will run on all cores in the allocation
+#Commands with srun will run on all cores in the allocation
 srun ./a.out
 
 Now run the batch script using: sbatch scriptname
