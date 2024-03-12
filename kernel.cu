@@ -8,14 +8,15 @@
 __global__ void kernel(int *array1, int *array2, int *array3)
 
 {
+  // to do: verify the gpu id by using function cudaGetDevice()
 
- int index = blockIdx.x * blockDim.x + threadIdx.x;
+  int index = blockIdx.x * blockDim.x + threadIdx.x;
 
- array3[index] = array1[index] + array2[index];
+  array3[index] = array1[index] + array2[index];
 
 }
 
-void run_kernel(int par)
+void run_kernel(int processID)
 {
 
   printf("Par is %d\n",par);
@@ -30,6 +31,8 @@ void run_kernel(int par)
     array2[i] = i;
 
   }
+  // select a unique GPU id based on MPI process ID
+  cudaSetDevice(processID);
 
   cudaMalloc((void**) &devarray1, sizeof(int)*6);
 
