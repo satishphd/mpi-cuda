@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
  MPI_Comm_size (MPI_COMM_WORLD, &size); /* get number of processes */
 
- run_kernel(5);
+ run_kernel(rank);
 
  MPI_Finalize();
 
